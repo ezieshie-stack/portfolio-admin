@@ -170,7 +170,7 @@ export default function AdminImagesPage() {
       <header className="admin-page-head">
         <div className="admin-page-head-row">
           <div>
-            <span className="admin-eyebrow">// IMAGES</span>
+            <span className="admin-eyebrow">{"// IMAGES"}</span>
             <h1 className="admin-page-title">Images</h1>
             <p className="admin-page-sub">
               {images === undefined

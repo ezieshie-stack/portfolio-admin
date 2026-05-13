@@ -139,7 +139,7 @@ export default function AdminContentPage() {
   return (
     <div className="admin-page">
       <header className="admin-page-head">
-        <span className="admin-eyebrow">// SITE CONTENT</span>
+        <span className="admin-eyebrow">{"// SITE CONTENT"}</span>
         <h1 className="admin-page-title">Site Content</h1>
         <p className="admin-page-sub">
           Override page copy per section. Live site falls back to the static default in{" "}
