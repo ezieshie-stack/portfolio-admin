@@ -113,13 +113,19 @@ without running `convex dev`.
 
 ## Deploy to Vercel
 
+This repo gets its **own Vercel project** — separate from the public site.
+The public site (`portfolio-build`) lives at Vercel project
+**`thrillsmotion-5662`**. Do **not** re-point that project at this repo.
+
 1. Vercel → Add New → Project → Import `ezieshie-stack/portfolio-admin`
+   (new project, distinct from `thrillsmotion-5662`)
 2. Framework Preset: Next.js (auto-detected)
 3. Build Command: `next build` (default)
 4. **Environment Variables** (Production + Preview):
    - `ADMIN_PASSWORD`
    - `ADMIN_SECRET`
-   - `NEXT_PUBLIC_CONVEX_URL`
+   - `NEXT_PUBLIC_CONVEX_URL` — must match the value set on `thrillsmotion-5662`
+     so both apps talk to the same Convex deployment
    - `CONVEX_DEPLOY_KEY` (optional but recommended — lets Vercel push schema changes on each deploy via `convex deploy`)
 5. Deploy.
 6. Visit `<your-vercel-url>/admin/login` and sign in.
