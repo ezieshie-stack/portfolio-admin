@@ -113,22 +113,31 @@ without running `convex dev`.
 
 ## Deploy to Vercel
 
-This repo gets its **own Vercel project** — separate from the public site.
-The public site (`portfolio-build`) lives at Vercel project
-**`thrillsmotion-5662`**. Do **not** re-point that project at this repo.
+Vercel layout for this account:
+
+- **Team / account slug:** `thrillsmotion-5662` (slug
+  `thrillsmotion-5662s-projects`)
+- **Public site project:** `portfolio-build` (already provisioned;
+  deploys from `ezieshie-stack/portfolio-build`)
+- **Admin project:** *this repo* — gets its own separate Vercel project
+  on the same team. Do **not** re-point `portfolio-build` at this repo.
+
+Steps to provision the admin Vercel project:
 
 1. Vercel → Add New → Project → Import `ezieshie-stack/portfolio-admin`
-   (new project, distinct from `thrillsmotion-5662`)
-2. Framework Preset: Next.js (auto-detected)
-3. Build Command: `next build` (default)
-4. **Environment Variables** (Production + Preview):
+2. Scope: select the **`thrillsmotion-5662`** team
+3. Framework Preset: Next.js (auto-detected)
+4. Build Command: `next build` (default)
+5. **Environment Variables** (Production + Preview):
    - `ADMIN_PASSWORD`
    - `ADMIN_SECRET`
-   - `NEXT_PUBLIC_CONVEX_URL` — must match the value set on `thrillsmotion-5662`
-     so both apps talk to the same Convex deployment
-   - `CONVEX_DEPLOY_KEY` (optional but recommended — lets Vercel push schema changes on each deploy via `convex deploy`)
-5. Deploy.
-6. Visit `<your-vercel-url>/admin/login` and sign in.
+   - `NEXT_PUBLIC_CONVEX_URL` — must match the value set on the
+     `portfolio-build` project so both apps talk to the same Convex
+     deployment
+   - `CONVEX_DEPLOY_KEY` (optional but recommended — lets Vercel push
+     schema changes on each deploy via `convex deploy`)
+6. Deploy.
+7. Visit `<your-vercel-url>/admin/login` and sign in.
 
 ---
 
