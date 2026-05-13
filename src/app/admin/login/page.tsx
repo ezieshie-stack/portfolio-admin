@@ -41,7 +41,7 @@ function LoginForm() {
   return (
     <div className="admin-login-shell">
       <form className="admin-login-card" onSubmit={onSubmit}>
-        <span className="admin-eyebrow">// ADMIN</span>
+        <span className="admin-eyebrow">{"// ADMIN"}</span>
         <h1 className="admin-login-title">Sign in</h1>
         <p className="admin-login-sub">Enter the admin password to continue.</p>
 

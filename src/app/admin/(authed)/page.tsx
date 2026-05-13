@@ -14,7 +14,7 @@ export default function AdminDashboardPage() {
   return (
     <div className="admin-page">
       <header className="admin-page-head">
-        <span className="admin-eyebrow">// DASHBOARD</span>
+        <span className="admin-eyebrow">{"// DASHBOARD"}</span>
         <h1 className="admin-page-title">Welcome back.</h1>
         <p className="admin-page-sub">
           Manage articles, page copy, and media for the portfolio.

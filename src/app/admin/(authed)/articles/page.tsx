@@ -208,7 +208,7 @@ export default function AdminArticlesPage() {
       <header className="admin-page-head">
         <div className="admin-page-head-row">
           <div>
-            <span className="admin-eyebrow">// ARTICLES</span>
+            <span className="admin-eyebrow">{"// ARTICLES"}</span>
             <h1 className="admin-page-title">Articles</h1>
             <p className="admin-page-sub">
               {counts.total} total · {counts.published} published · {counts.drafts} drafts
