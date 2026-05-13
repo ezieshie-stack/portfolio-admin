@@ -67,13 +67,19 @@ export default function AdminContentPage() {
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState<{ type: "ok" | "err"; text: string } | null>(null);
 
-  // Re-seed draft whenever the section changes or the override resolves
-  useEffect(() => {
-    if (override === undefined) return; // still loading
-    const data = override ?? active.defaultData;
-    setDraft(JSON.stringify(data, null, 2));
+  // Re-seed the editable draft when the active section changes or its override
+  // resolves. Uses the "adjust state during render" pattern (React docs:
+  // https://react.dev/reference/react/useState#storing-information-from-previous-renders)
+  // rather than useEffect, so the textarea content matches the new section on
+  // the same render that switches sections — no flicker, no cascading effect.
+  const seedKey =
+    override === undefined ? null : `${activeKey}:${override == null ? "default" : "override"}`;
+  const [seededFor, setSeededFor] = useState<string | null>(null);
+  if (seedKey !== null && seedKey !== seededFor) {
+    setSeededFor(seedKey);
+    setDraft(JSON.stringify(override ?? active.defaultData, null, 2));
     setParseError(null);
-  }, [override, active.defaultData, activeKey]);
+  }
 
   useEffect(() => {
     if (!status) return;
